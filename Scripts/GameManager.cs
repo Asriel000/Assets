@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour {
     public void LoadNextScene() {
         Reset();
         currentScene += 1;
-        Debug.Log("WTF");
         SceneManager.LoadScene(scenes[currentScene]);
     }
 

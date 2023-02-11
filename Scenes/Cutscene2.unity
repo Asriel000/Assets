@@ -1027,7 +1027,6 @@ GameObject:
   - component: {fileID: 1116813077}
   - component: {fileID: 1116813080}
   - component: {fileID: 1116813079}
-  - component: {fileID: 1116813078}
   m_Layer: 0
   m_Name: Floor TileMap
   m_TagString: Untagged
@@ -1050,33 +1049,6 @@ Transform:
   m_Father: {fileID: 1893905898}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116813078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1116813076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6bbb9f96869edb4394efedd6b8e0050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  filter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  openedTimeCapsule: {fileID: 0}
 --- !u!483693784 &1116813079
 TilemapRenderer:
   m_ObjectHideFlags: 0
