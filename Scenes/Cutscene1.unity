@@ -424,6 +424,14 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2034944303792303124, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 239cc9e0378322e4dbf2ca2e6a24338d, type: 2}
+    - target: {fileID: 2034944303792303124, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2507176302905396206, guid: 239cc9e0378322e4dbf2ca2e6a24338d, type: 2}
     - target: {fileID: 2034944304283907046, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
       propertyPath: m_Name
       value: Dialogue
@@ -529,9 +537,17 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 2034944304590932826, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 239cc9e0378322e4dbf2ca2e6a24338d, type: 2}
+    - target: {fileID: 2034944304590932826, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
       propertyPath: m_fontSizeBase
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 2034944304590932826, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -2507176302905396206, guid: 239cc9e0378322e4dbf2ca2e6a24338d, type: 2}
     - target: {fileID: 4033301182549336754, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
       propertyPath: m_Volume
       value: 0.75
