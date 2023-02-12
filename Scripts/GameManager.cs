@@ -8,14 +8,15 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
-    private readonly List<string> scenes = new() { "TitleScreen", "Cutscene1", "Dungeon1", "Cutscene2", "Dungeon2", "Cutscene3", "Dungeon3", "Cutscene4" };
+    private readonly List<string> scenes = new() { "TitleScene", "Cutscene1", "Dungeon1", "Cutscene2", "Dungeon2", "Cutscene3", "Dungeon3", "Cutscene4" };
     private readonly List<bool> dialogue = new() {         false,        true,      false,        true, false, true, false, true };
-    private readonly int[] musicC1 = {  2,  2, 0,  2, 0,  3, 0,  3 };
+    private readonly int[] musicC1 = {  3,  2, 0,  2, 0,  3, 0,  3 };
     private readonly int[] musicC2 = { -1, -1, 1, -1, 1, -1, 1, -1 };
     private int currentScene = 0;
     private Vector3 respawnPosition;
     private string currentLevel;
     private bool fromBattle = false;
+    private bool starting = true;
 
     private void Awake() {
         currentScene = scenes.IndexOf(SceneManager.GetActiveScene().name);
@@ -41,6 +42,19 @@ public class GameManager : MonoBehaviour {
         //Call function when a scene is loaded, needs to have a Scene and LoadSceneLoad
         SceneManager.sceneLoaded += OnLevelLoad;
         SetupMusic();
+    }
+
+    void Update()
+    {
+        if(SceneManager.GetActiveScene().name == "TitleScene" && starting)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                starting = false;
+                currentScene = 0;
+                LoadNextScene();
+            }
+        }
     }
 
     //Resources

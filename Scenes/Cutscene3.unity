@@ -291,6 +291,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 97aeedf8c0abc450580a1c6a06e59a33, type: 3}
     - target: {fileID: 1807381404267870133, guid: 22e7e0c80171f4b6f8433e5e70245db2, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1700332852}
+    - target: {fileID: 1807381404267870133, guid: 22e7e0c80171f4b6f8433e5e70245db2, type: 3}
       propertyPath: dialogue.Array.size
       value: 8
       objectReference: {fileID: 0}
@@ -547,3 +551,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1700332852 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 371697464616839168, guid: 22e7e0c80171f4b6f8433e5e70245db2, type: 3}
+  m_PrefabInstance: {fileID: 1366644956}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbcb15a9f1dbfad44ada41ad615af030, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
