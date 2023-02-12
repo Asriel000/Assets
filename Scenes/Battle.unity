@@ -463,16 +463,10 @@ MonoBehaviour:
   inputEnemyHitpoints: 
   inputEnemyMaxHitpoints: 
   gameManager: {fileID: 0}
-  enemyPrefab: {fileID: 7587181488565604524, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+  enemyPrefab: {fileID: 2368184930749981905, guid: 72051516aa3dedb429812d66ec12ab5b, type: 3}
   canvas: {fileID: 1472934483}
   enemyCentre: {x: 450, y: 105}
   enemyLevel: 0
-  animations:
-  - {fileID: 9100000, guid: 6d3ea5ed3820eb74983df8128ef94a5a, type: 2}
-  - {fileID: 9100000, guid: e715dd5da22fc5b4f806420e8c45f493, type: 2}
-  - {fileID: 9100000, guid: 189beeb6f9b09da4baae3cf918a7bd96, type: 2}
-  - {fileID: 9100000, guid: 1406c61b8e71f9b4682e2834c858a591, type: 2}
-  - {fileID: 9100000, guid: cc611d4ec1c744643817e86410ad3b7a, type: 2}
 --- !u!4 &133208397
 Transform:
   m_ObjectHideFlags: 0

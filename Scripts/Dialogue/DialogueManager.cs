@@ -21,6 +21,8 @@ public class DialogueManager : MonoBehaviour {
 
     private bool loadingNext = false;
 
+    private bool canLoadNext = false;
+
     void Start() {
         dialogue = new Queue<String>();
         charas = new Queue<Tuple<string, Sprite>>();
@@ -80,7 +82,7 @@ public class DialogueManager : MonoBehaviour {
             }
             NextDialogue();
 
-            if (hasFinished && !loadingNext)
+            if (canLoadNext && !loadingNext)
             {
                 GameManager.instance.LoadNextScene();
                 loadingNext = true;
@@ -108,6 +110,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue() {
         animator.SetBool("isOpen", false);
+        canLoadNext = true;
     }
 
 }

@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor.Animations;
 using TMPro;
 
 
@@ -45,7 +44,6 @@ public class CombatControl : MonoBehaviour
     public Vector2 enemyCentre = new Vector2(450, 105);
 
     public int enemyLevel = 0;
-    public AnimatorController[] animations = new AnimatorController[5];
 
     // Start is called before the first frame update
     void Start()
@@ -106,8 +104,8 @@ public class CombatControl : MonoBehaviour
             temp.is_enemy = true;
             temp.level = enemyLevel;
             temp.SetEnemySkills();
-            temp.box.spriteImage.transform.localScale = new Vector3(2, 2, 1);
-            temp.box.spriteImage.gameObject.AddComponent<Animator>().runtimeAnimatorController = animations[temp.typeId] as RuntimeAnimatorController;
+            //temp.box.spriteImage.transform.localScale = new Vector3(2, 2, 1);
+            temp.box.spriteImage.gameObject.GetComponent<Animator>().SetInteger("TypeID", temp.typeId);
             enemies.Add(temp);
         }
         SetButtons();

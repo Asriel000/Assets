@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1689869675335799337}
   - component: {fileID: 1689869675335799334}
   - component: {fileID: 1689869675335799335}
-  - component: {fileID: 2212575422857222950}
   m_Layer: 7
   m_Name: Chonk
   m_TagString: Player
@@ -74,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -328275763
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 51856213, guid: 0bb1722f3d4f55f4b860b53950c13f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -128,13 +127,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ySpeed: 0.75
   xSpeed: 1
-  animator: {fileID: 1689869675335799335}
-  hitpoint: 
-  maxHitpoint: 
-  upgraded: 
+  spriteRenderer: {fileID: 0}
+  isAlive: 1
 --- !u!95 &1689869675335799335
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,16 +148,4 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2212575422857222950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689869675335799332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c06fc18e6fe839f41acdacadc7bfc4d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_KeepAnimatorControllerStateOnDisable: 0

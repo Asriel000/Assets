@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour {
 
     public void OnLevelLoad(Scene s, LoadSceneMode mode)
     {
-        if (dialogue[currentScene])
+        if (GameObject.FindWithTag("Dialogue") != null)
         {
             Debug.Log(SceneManager.GetActiveScene().name);
             GameObject.FindWithTag("Dialogue").GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour {
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
-        if (GameObject.FindWithTag("SpawnPoint") != null)
+        if (GameObject.FindWithTag("SpawnPoint") != null && player != null)
         {
             if (respawning)
             {
@@ -117,6 +117,7 @@ public class GameManager : MonoBehaviour {
         else
         {
             fromBattle = false;
+            player.SetupAnimator(PlayerData.instance.characterID);
         }
 
     }
