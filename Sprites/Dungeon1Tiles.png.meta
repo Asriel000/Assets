@@ -3,7 +3,7 @@ guid: 18c3505834e25b64bbd16ce8c13c0366
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 99
+  spritePixelsToUnits: 49
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -4630,7 +4631,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Dungeon1Tiles_190: -1822860603
-      PillarWallCentre: -1744438184
+      Dungeon1Tiles_161: 531151893
       Wall2_0: -2114371105
       Dungeon1Tiles_73: -1717885443
       Dungeon1Tiles_232: 841332577
@@ -4881,7 +4882,7 @@ TextureImporter:
       Dungeon1Tiles_42: -1333721440
       Sword_Red: 274433295
       HealingFountain_0: -219686397
-      Dungeon1Tiles_161: 531151893
+      PillarWallCentre: -1744438184
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

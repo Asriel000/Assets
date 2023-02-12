@@ -56,6 +56,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: dee24efc9641cb744aabb7cd4d95b47b, type: 3}
   - {fileID: 8300000, guid: 1cd8716948ee2854a85fc8fafbb2aecc, type: 3}
   - {fileID: 8300000, guid: 8554ea9a487c7bf43b4828db111b3dc5, type: 3}
+  - {fileID: 8300000, guid: 7e77f5d89441b03489008cc42defd97b, type: 3}
   keys:
   - Blip
   - Footstep
@@ -64,6 +65,7 @@ MonoBehaviour:
   - Quick_Test_Jump
   - Shoot
   - Slash
+  - Heal
   channels:
   - {fileID: 1878397137692718379}
   - {fileID: 1878397138616410674}

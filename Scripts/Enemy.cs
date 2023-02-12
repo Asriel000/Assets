@@ -9,17 +9,15 @@ public class Enemy : Mover {
     public float chaseLength = 1.0f;
     private bool chasing;
     private bool collidingWithPlayer;
-    private Transform playerTransform;
+    public Transform playerTransform;
     private Vector3 startingPosition;
+    private Animator anim;
 
     public int id;
-    public List<string> type;
-    public List<string> name;
-    public List<int> hitpoints;
-    public List<int> maxHitpoints;
-
-    public int hitpoint = 10;
-    public int maxHitpoint = 10;
+    public List<string> types = new() { "bat" };
+    public List<string> names = new() { "Bat" };
+    public List<int> hitpoints = new() { 10 };
+    public List<int> maxHitpoints = new() { 10 };
 
     private bool move;
     private float moveTime = 0.8f;
@@ -42,26 +40,41 @@ public class Enemy : Mover {
         hitbox = transform.GetComponent<BoxCollider2D>();
         randVec = Random.insideUnitCircle;
         idleStart = Time.time;
+        anim = GetComponent<Animator>();
         move = false;
+    }
+
+    public void Move(Vector3 motion)
+    {
+        Debug.Log("Moving");
+        if ((motion).x < 0) {
+            anim.SetBool("mirror", true);
+        } else {
+            anim.SetBool("mirror", false);
+        }
+        UpdateMotor(motion);
     }
 
     private void FixedUpdate() {
         // Is player in range?
-        if (Vector3.Distance(playerTransform.position, startingPosition) < chaseLength) {
+        if (Vector3.Distance(playerTransform.position, startingPosition) < chaseLength)
+        {
+            Debug.Log(names[0]);
+            Debug.Log("Close Enough");
             if (Vector3.Distance(playerTransform.position, transform.position) < triggerLength) {
                 chasing = true;
             }
             if (chasing) {
                 if (!collidingWithPlayer) {
-                    UpdateMotor((playerTransform.position - transform.position).normalized);
+                    Move((playerTransform.position - transform.position).normalized);
                 } else {
-                    UpdateMotor(startingPosition - transform.position);
+                    Move(startingPosition - transform.position);
                 }
             } else {
-                UpdateMotor(startingPosition - transform.position);
+                Move(startingPosition - transform.position);
             }
         } else {
-            UpdateMotor(startingPosition - transform.position);
+            Move(startingPosition - transform.position);
             chasing = false;
             /*
             if (move) {

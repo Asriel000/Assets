@@ -64,8 +64,14 @@ MonoBehaviour:
   box: {fileID: 4976911497590843474}
   baseBackground: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
   hurtBackground: {r: 1, g: 0, b: 0, a: 1}
+  healBackground: {r: 0, g: 0.5943396, b: 0, a: 1}
   flashTime: 250
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
   hurtSound: Hurt
+  healSound: Heal
 --- !u!1001 &7587181489738555301
 PrefabInstance:
   m_ObjectHideFlags: 0

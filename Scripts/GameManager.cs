@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
         }
 
+        if (GameObject.FindWithTag("Tracker") != null)
+        {
+            tracker = GameObject.FindWithTag("Tracker").GetComponent<EnemyTracker>();
+        }
+
         DontDestroyOnLoad(gameObject);
 
         instance = this;
@@ -40,6 +45,7 @@ public class GameManager : MonoBehaviour {
 
     //References
     public Player player;
+    public EnemyTracker tracker;
 
     public RectTransform healthBar;
     public TextMeshPro healthText;
@@ -52,9 +58,15 @@ public class GameManager : MonoBehaviour {
     private List<string> battleEnemyTypes;
     private List<int> battleEnemyHitpoints;
     private List<int> battleEnemyMaxHitpoints;
+    private int battleId;
+    private List<bool> battleStatuses;
 
     public void OnLevelLoad(Scene s, LoadSceneMode mode)
     {
+        if (GameObject.FindWithTag("Tracker") != null)
+        {
+            tracker = GameObject.FindWithTag("Tracker").GetComponent<EnemyTracker>();
+        }
         if (GameObject.FindWithTag("Player") != null)
         {
             player = GameObject.FindWithTag("Player").GetComponent<Player>();
@@ -69,6 +81,13 @@ public class GameManager : MonoBehaviour {
             {
                 player.gameObject.SetActive(true);
                 player.transform.position = respawnPosition;
+            }
+        }
+        if (!respawning)
+        {
+            if (tracker != null)
+            {
+                tracker.KillDeadEnemies(battleStatuses);
             }
         }
         if (SceneManager.GetActiveScene().name == "Battle")
@@ -117,6 +136,7 @@ public class GameManager : MonoBehaviour {
     public void Win()
     {
         Debug.Log("Win");
+        battleStatuses[battleId] = false;
         SceneManager.LoadScene(scenes[currentScene]);
         respawning = false;
         MusicEngine.instance.FadeToChannel1(0.5F);
@@ -130,17 +150,17 @@ public class GameManager : MonoBehaviour {
 
     public void LoadBattle(Enemy enemy)
     {
+        battleId = enemy.id;
         respawnPosition = player.transform.position;
         currentLevel = SceneManager.GetActiveScene().name;
-        List<Enemy> battleEnemies = new() { enemy };
-        battleEnemyTypes = new List<string>();
-        battleEnemyHitpoints = new List<int>();
-        battleEnemyMaxHitpoints = new List<int>();
-        foreach (Enemy e in battleEnemies)
+        battleEnemyTypes = enemy.types;
+        battleEnemyHitpoints = enemy.hitpoints;
+        battleEnemyMaxHitpoints = enemy.maxHitpoints;
+        battleStatuses = new List<bool> (tracker.enemyStatuses.Count);
+        for (int i = 0; i < tracker.enemyStatuses.Count; i++)
         {
-            battleEnemyTypes.Add("bat");
-            battleEnemyHitpoints.Add(enemy.hitpoint);
-            battleEnemyMaxHitpoints.Add(enemy.maxHitpoint);
+            Debug.Log(i);
+            battleStatuses.Add(tracker.enemyStatuses[i]);
         }
         SceneManager.LoadScene("Battle");
     }

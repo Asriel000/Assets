@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1322350957, guid: d621a7d555cb9c448b395a411b997917, type: 3}
+      objectReference: {fileID: -516876646, guid: 91105b52ea832438683f52badc071e6e, type: 3}
     - target: {fileID: 4705742843105866194, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Name
       value: Box
@@ -438,18 +438,41 @@ MonoBehaviour:
   - {fileID: 101479535}
   - {fileID: 159783862}
   enemies: []
+  normal:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hurt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  low:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skill_buttons: []
   other_buttons: []
   hero_timeline_text: {fileID: 1745053185}
   enemy_timeline_text: {fileID: 1249991484}
   ap_left: {fileID: 2037221123}
   hero_ap_left: 4
-  inputPlayer: {fileID: 0}
   inputEnemyTypes: []
   inputEnemyHitpoints: 
   inputEnemyMaxHitpoints: 
+  gameManager: {fileID: 0}
   enemyPrefab: {fileID: 7587181488565604524, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
   canvas: {fileID: 1472934483}
+  enemyCentre: {x: 450, y: 105}
+  enemyLevel: 0
+  animations:
+  - {fileID: 9100000, guid: 6d3ea5ed3820eb74983df8128ef94a5a, type: 2}
+  - {fileID: 9100000, guid: e715dd5da22fc5b4f806420e8c45f493, type: 2}
+  - {fileID: 9100000, guid: 189beeb6f9b09da4baae3cf918a7bd96, type: 2}
+  - {fileID: 9100000, guid: 1406c61b8e71f9b4682e2834c858a591, type: 2}
+  - {fileID: 9100000, guid: cc611d4ec1c744643817e86410ad3b7a, type: 2}
 --- !u!4 &133208397
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +649,7 @@ PrefabInstance:
     - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 2f1dce7aa0b5bb54499fbd54915d194c, type: 3}
+      objectReference: {fileID: 610256516, guid: 8deb5866e1aa5a543842287bc705094b, type: 3}
     - target: {fileID: 4705742843105866194, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Name
       value: Box
@@ -1141,7 +1164,7 @@ PrefabInstance:
     - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -791689344, guid: 8d92ebd3edcecf645a550f0c34147e04, type: 3}
+      objectReference: {fileID: -348470134, guid: ca330c1ebb264499c969e5fe93bdf59a, type: 3}
     - target: {fileID: 4705742843105866194, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Name
       value: Box
@@ -1437,7 +1460,7 @@ PrefabInstance:
     - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -293902084, guid: cda6def068a3af644b815f7d35139219, type: 3}
+      objectReference: {fileID: -744933942, guid: eeca7321722c64c7bb09161855a2b983, type: 3}
     - target: {fileID: 4705742843105866194, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Name
       value: Box

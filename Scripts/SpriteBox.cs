@@ -37,4 +37,12 @@ public class SpriteBox : MonoBehaviour
     {
         spriteImage.sprite = sprite;
     }
+
+    public async void FlashSprite(Sprite sprite, int ms)
+    {
+        Sprite prior = spriteImage.sprite;
+        spriteImage.sprite = sprite;
+        await Task.Delay(ms);
+        spriteImage.sprite = prior;
+    }
 }

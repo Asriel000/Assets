@@ -292,13 +292,42 @@ MonoBehaviour:
   - {fileID: 1855731808}
   - {fileID: 144346413}
   - {fileID: 1817143738}
-  enemy: {fileID: 1472422884}
+  enemies: []
+  normal:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  hurt:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  low:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   skill_buttons: []
   other_buttons: []
   hero_timeline_text: {fileID: 1745053185}
   enemy_timeline_text: {fileID: 1249991484}
   ap_left: {fileID: 2037221123}
   hero_ap_left: 4
+  inputEnemyTypes: []
+  inputEnemyHitpoints: 
+  inputEnemyMaxHitpoints: 
+  gameManager: {fileID: 0}
+  enemyPrefab: {fileID: 0}
+  canvas: {fileID: 0}
+  enemyCentre: {x: 450, y: 105}
+  enemyLevel: 0
+  animations:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &133208397
 Transform:
   m_ObjectHideFlags: 0
@@ -411,6 +440,20 @@ MonoBehaviour:
   - block
   - hold
   is_enemy: 0
+  bar: {fileID: 0}
+  box: {fileID: 0}
+  baseBackground: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  hurtBackground: {r: 1, g: 0.25, b: 0.25, a: 1}
+  healBackground: {r: 0, g: 0.8, b: 0, a: 1}
+  flashTime: 50
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
+  hurtSound: Hurt
+  healSound: Heal
+  level: 0
+  typeId: -1
 --- !u!1 &155446413
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,6 +1936,20 @@ MonoBehaviour:
   - wrench
   - dash
   is_enemy: 0
+  bar: {fileID: 0}
+  box: {fileID: 0}
+  baseBackground: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  hurtBackground: {r: 1, g: 0.25, b: 0.25, a: 1}
+  healBackground: {r: 0, g: 0.8, b: 0, a: 1}
+  flashTime: 50
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
+  hurtSound: Hurt
+  healSound: Heal
+  level: 0
+  typeId: -1
 --- !u!1 &585328622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3120,132 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156879479}
   m_CullTransparentMesh: 1
+--- !u!1001 &1190316940
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 565990633, guid: e698871d2561a5b4bb1c3ec0f290cfba, type: 3}
+    - target: {fileID: 7587181488565604524, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_Name
+      value: BattleDisplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 437
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 134
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587181488565604525, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+--- !u!1 &1190316941 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4705742843071429528, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
+  m_PrefabInstance: {fileID: 1190316940}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1190316942
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190316941}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e715dd5da22fc5b4f806420e8c45f493, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1230741581
 GameObject:
   m_ObjectHideFlags: 0
@@ -4118,6 +4301,20 @@ MonoBehaviour:
   - nullSkill
   - batscreech
   is_enemy: 1
+  bar: {fileID: 0}
+  box: {fileID: 0}
+  baseBackground: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  hurtBackground: {r: 1, g: 0.25, b: 0.25, a: 1}
+  healBackground: {r: 0, g: 0.8, b: 0, a: 1}
+  flashTime: 50
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
+  hurtSound: Hurt
+  healSound: Heal
+  level: 0
+  typeId: -1
 --- !u!1 &1472934483
 GameObject:
   m_ObjectHideFlags: 0
@@ -5853,6 +6050,20 @@ MonoBehaviour:
   - scratch
   - meow
   is_enemy: 0
+  bar: {fileID: 0}
+  box: {fileID: 0}
+  baseBackground: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  hurtBackground: {r: 1, g: 0.25, b: 0.25, a: 1}
+  healBackground: {r: 0, g: 0.8, b: 0, a: 1}
+  flashTime: 50
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
+  hurtSound: Hurt
+  healSound: Heal
+  level: 0
+  typeId: -1
 --- !u!1 &1855731804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5950,6 +6161,20 @@ MonoBehaviour:
   - patchup
   - surge
   is_enemy: 0
+  bar: {fileID: 0}
+  box: {fileID: 0}
+  baseBackground: {r: 0.25, g: 0.25, b: 0.25, a: 1}
+  hurtBackground: {r: 1, g: 0.25, b: 0.25, a: 1}
+  healBackground: {r: 0, g: 0.8, b: 0, a: 1}
+  flashTime: 50
+  normal: {fileID: 0}
+  attacking: {fileID: 0}
+  hurt: {fileID: 0}
+  low: {fileID: 0}
+  hurtSound: Hurt
+  healSound: Heal
+  level: 0
+  typeId: -1
 --- !u!1 &1890103545
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor.Animations;
 using TMPro;
 
 
@@ -11,6 +12,9 @@ public class CombatControl : MonoBehaviour
 {
     public List<Entity> heroes = new List<Entity>();
     public List<Entity> enemies = new List<Entity>();
+    public Sprite[] normal = new Sprite[4];
+    public Sprite[] hurt = new Sprite[4];
+    public Sprite[] low = new Sprite[4];
     public List<Skill> hero_timeline = new List<Skill>();
     public List<Skill> enemy_timeline = new List<Skill>();
 
@@ -39,6 +43,9 @@ public class CombatControl : MonoBehaviour
     public GameObject canvas;
 
     public Vector2 enemyCentre = new Vector2(450, 105);
+
+    public int enemyLevel = 0;
+    public AnimatorController[] animations = new AnimatorController[5];
 
     // Start is called before the first frame update
     void Start()
@@ -78,10 +85,6 @@ public class CombatControl : MonoBehaviour
     {
         Debug.Log("Attempting to initialise Battle");
         StartCoroutine(WaitingToReceiveBattleStart());
-        IEnumerator WaitForFrame()
-        {
-            yield return new WaitForEndOfFrame();
-        }
         int[] hitpoint = PlayerData.instance.GetHitpoint();
         int[] maxhitpoint = PlayerData.instance.maxHitpoint;
         for (int i = 0; i < hitpoint.Length; i++)
@@ -99,7 +102,12 @@ public class CombatControl : MonoBehaviour
             tempRect.offsetMin = new Vector2(0.5F, 0.5F);
             tempRect.pivot = new Vector2(0.5F, 0.5F);
             tempRect.anchoredPosition = new Vector2(0, 0) + enemyCentre;
-            temp.SetHealth(inputEnemyHitpoints[i], inputEnemyMaxHitpoints[i]);
+            temp.display_name = inputEnemyTypes[i];
+            temp.is_enemy = true;
+            temp.level = enemyLevel;
+            temp.SetEnemySkills();
+            temp.box.spriteImage.transform.localScale = new Vector3(2, 2, 1);
+            temp.box.spriteImage.gameObject.AddComponent<Animator>().runtimeAnimatorController = animations[temp.typeId] as RuntimeAnimatorController;
             enemies.Add(temp);
         }
         SetButtons();

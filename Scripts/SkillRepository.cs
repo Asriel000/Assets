@@ -52,9 +52,25 @@ public class SkillRepository
 
         //enemy skills
 
-        Skill batscreech = new Skill("batscreech", "Supersonic Screech", 1, -1, new int[3] {1, 4, 0}, new Dictionary<string, Skill.status_data>());
-        
+        Skill batscreech = new Skill("batscreech", "Supersonic Screech", 1, -1, new int[3] { 1, 8, 0 }, new Dictionary<string, Skill.status_data>());
+        Skill slughug = new Skill("slughug", "Sluggish Embrace", 1, -2, new int[3] { 0, 0, 1 }, new Dictionary<string, Skill.status_data>() { { "weak", new Skill.status_data() { chance = 0.75f, duration = 1 } } });
+        Skill slugslime = new Skill("slugslime", "Corrosive Slime", 1, -3, new int[3] { 1, 4, 0 }, new Dictionary<string, Skill.status_data>());
+        Skill tardishield = new Skill("tardishield", "Cryptobiosis", 1, 1, new int[3] { 0, 0, 0 }, new Dictionary<string, Skill.status_data>() { { "shielded", new Skill.status_data() { chance = 0.75f, duration = 2 } } });
+        Skill tardicrush = new Skill("tardicrush", "Intruder Countermeasures", 1, -1, new int[3] { 1, 6, 0 }, new Dictionary<string, Skill.status_data>() { { "weak", new Skill.status_data() { chance = 0.75f, duration = 2 } } });
+        Skill tardiregen = new Skill("tardiregen", "Autodiagnosis", 1, 1, new int[3] { -1, 6, 1 }, new Dictionary<string, Skill.status_data>());
+        Skill eyebeam = new Skill("eyebeam", "Scattershot Lazer", 1, -3, new int[3] { 1, 4, 0 }, new Dictionary<string, Skill.status_data>());
+        Skill blobmorph = new Skill("blobmorph", "Morphic Elimination", 1, -2, new int[3] { 1, 6, 3 }, new Dictionary<string, Skill.status_data>());
+
         all_skills.Add("batscreech", batscreech);
+        all_skills.Add("slughug", slughug);
+        all_skills.Add("slugslime", slugslime);
+        all_skills.Add("tardishield", tardishield);
+        all_skills.Add("tardicrush", tardicrush);
+        all_skills.Add("tardiregen", tardicrush);
+        all_skills.Add("eyebeam", eyebeam);
+        all_skills.Add("blobmorph", blobmorph);
+
+
     }
 
     // Update is called once per frame
