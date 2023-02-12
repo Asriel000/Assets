@@ -375,6 +375,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2034944304590932826, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_fontSize
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2034944304590932826, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4d8ddf8018f46929d345f75d3622a2, type: 3}
 --- !u!1 &1519416423
@@ -762,10 +770,10 @@ MonoBehaviour:
     sentences:
     - Were you blinded by the sun or something? You're literally blinder than gran-
   - character: Chonk
-    spriteExpr: {fileID: 224041005, guid: 7e69c5bd9cf214f428c555fb25835953, type: 3}
+    spriteExpr: {fileID: -1691911501, guid: 7e69c5bd9cf214f428c555fb25835953, type: 3}
     textsound: {fileID: 250769929}
     sentences:
-    - G........g.......guys.......pl......please.......stop.....
+    - Guys, please stop this...
   - character: Hila
     spriteExpr: {fileID: 224253988, guid: eeca7321722c64c7bb09161855a2b983, type: 3}
     textsound: {fileID: 1686487456}
