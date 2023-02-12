@@ -9,13 +9,16 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
     private readonly List<string> scenes = new() { "TitleScreen", "Cutscene1", "Dungeon1", "Cutscene2", "Dungeon2", "Cutscene3", "Dungeon3", "Cutscene4" };
-    private readonly int[] musicC1 = {  2,  1, 0,  1, 0,  2, 0,  0 };
+    private readonly List<bool> dialogue = new() {         false,        true,      false,        true, false, true, false, true };
+    private readonly int[] musicC1 = {  2,  2, 0,  2, 0,  3, 0,  3 };
     private readonly int[] musicC2 = { -1, -1, 1, -1, 1, -1, 1, -1 };
-    private int currentScene = 2;
+    private int currentScene = 0;
     private Vector3 respawnPosition;
     private string currentLevel;
+    private bool fromBattle = false;
 
     private void Awake() {
+        currentScene = scenes.IndexOf(SceneManager.GetActiveScene().name);
         if (GameManager.instance != null) {
             Destroy(gameObject);
             return;
@@ -63,6 +66,11 @@ public class GameManager : MonoBehaviour {
 
     public void OnLevelLoad(Scene s, LoadSceneMode mode)
     {
+        if (dialogue[currentScene])
+        {
+            Debug.Log(SceneManager.GetActiveScene().name);
+            GameObject.FindWithTag("Dialogue").GetComponent<DialogueTrigger>().TriggerDialogue();
+        }
         if (GameObject.FindWithTag("Tracker") != null)
         {
             tracker = GameObject.FindWithTag("Tracker").GetComponent<EnemyTracker>();
@@ -94,6 +102,7 @@ public class GameManager : MonoBehaviour {
         {
             CombatControl combatHandler = GameObject.Find("CombatHandler").GetComponent<CombatControl>();
             combatHandler.gameManager = this;
+            combatHandler.enemyLevel = ((int) (currentScene + 1) / 2);
 
             combatHandler.inputEnemyTypes = battleEnemyTypes;
             combatHandler.inputEnemyHitpoints = battleEnemyHitpoints;
@@ -102,26 +111,42 @@ public class GameManager : MonoBehaviour {
             MusicEngine.instance.FadeToChannel2(0.5F);
         }
 
+        if (!fromBattle) {
+            SetupMusic();
+        } 
+        else
+        {
+            fromBattle = false;
+        }
+
     }
 
     private void SetupMusic()
     {
-        int sceneIndex = scenes.IndexOf(SceneManager.GetActiveScene().name);
-        if (sceneIndex >= 0)
+        IEnumerator WaitUntilReady()
         {
-            int track1 = musicC1[sceneIndex];
-            int track2 = musicC2[sceneIndex];
-            if (track2 == -1)
+            while(MusicEngine.instance == null)
             {
-                MusicEngine.instance.PlayOnChannel1(track1, true);
-                MusicEngine.instance.StopChannel(2);
+                yield return null;
             }
-            else
+            int sceneIndex = scenes.IndexOf(SceneManager.GetActiveScene().name);
+            if (sceneIndex >= 0)
             {
-                MusicEngine.instance.PlayOnBoth(track1, track2, true, true);
-                MusicEngine.instance.MuteChannel(2);
+                int track1 = musicC1[sceneIndex];
+                int track2 = musicC2[sceneIndex];
+                if (track2 == -1)
+                {
+                    MusicEngine.instance.PlayOnChannel1(track1, true);
+                    MusicEngine.instance.StopChannel(2);
+                }
+                else
+                {
+                    MusicEngine.instance.PlayOnBoth(track1, track2, true, true);
+                    MusicEngine.instance.MuteChannel(2);
+                }
             }
         }
+        StartCoroutine(WaitUntilReady());
     }
 
     public void Lose()
@@ -140,6 +165,7 @@ public class GameManager : MonoBehaviour {
         SceneManager.LoadScene(scenes[currentScene]);
         respawning = false;
         MusicEngine.instance.FadeToChannel1(0.5F);
+        fromBattle = true;
     }
 
     public void Respawn() {

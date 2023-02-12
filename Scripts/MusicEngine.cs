@@ -157,14 +157,17 @@ public class MusicEngine : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown("1"))
+        if (false)
         {
-            FadeToChannel1(1);
-        }
+            if (Input.GetKeyDown("1"))
+            {
+                FadeToChannel1(1);
+            }
 
-        if (Input.GetKeyDown("2"))
-        {
-            FadeToChannel2(1);
+            if (Input.GetKeyDown("2"))
+            {
+                FadeToChannel2(1);
+            }
         }
     }
 
@@ -320,6 +323,7 @@ public class MusicEngine : MonoBehaviour
     }
 
     public void PlayOnChannel1(int clipNum, bool loop) {
+        Debug.Log("Playing on Channel 1");
         channel1a.clip = clips[clipNum];
         channel1b.clip = clips[clipNum];
         channel1Clip = clipNum;
@@ -330,7 +334,9 @@ public class MusicEngine : MonoBehaviour
         channel1a.Play();
     }
 
-    public void PlayOnChannel2(int clipNum, bool loop) {
+    public void PlayOnChannel2(int clipNum, bool loop)
+    {
+        Debug.Log("Playing on Channel2");
         channel2a.clip = clips[clipNum];
         channel2b.clip = clips[clipNum];
         channel2Clip = clipNum;
@@ -341,7 +347,9 @@ public class MusicEngine : MonoBehaviour
         channel2a.Play();
     }
 
-    public void PlayOnBoth(int clip1, int clip2, bool loop1, bool loop2) {
+    public void PlayOnBoth(int clip1, int clip2, bool loop1, bool loop2)
+    {
+        Debug.Log("Playing on Channel Both");
         channel1a.clip = clips[clip1];
         channel1b.clip = clips[clip1];
         channel1Clip = clip1;

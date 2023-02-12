@@ -133,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 4705742843071429530, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -516876646, guid: 91105b52ea832438683f52badc071e6e, type: 3}
+      objectReference: {fileID: -1401282882, guid: 7e69c5bd9cf214f428c555fb25835953, type: 3}
     - target: {fileID: 4705742843105866194, guid: 54b8481b0e1023246a7b5520ca5d3a04, type: 3}
       propertyPath: m_Name
       value: Box

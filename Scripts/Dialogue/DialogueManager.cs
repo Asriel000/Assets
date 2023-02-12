@@ -19,6 +19,8 @@ public class DialogueManager : MonoBehaviour {
     private bool hasFinished = false;
     private string toDisplay = "";
 
+    private bool loadingNext = false;
+
     void Start() {
         dialogue = new Queue<String>();
         charas = new Queue<Tuple<string, Sprite>>();
@@ -26,9 +28,17 @@ public class DialogueManager : MonoBehaviour {
     }
 
     public void StartDialogue(DialogueExpression[] dialogues) {
-        animator.SetBool("isOpen", true);
-        makeDialogues(dialogues);
-        NextDialogue();
+        IEnumerator WaitUntilReady()
+        {
+            while (dialogue == null || charas == null || audios == null)
+            {
+                yield return null;
+            }
+            animator.SetBool("isOpen", true);
+            makeDialogues(dialogues);
+            NextDialogue();
+        }
+        StartCoroutine(WaitUntilReady());
     }
 
     public void makeDialogues(DialogueExpression[] dialogues) {
@@ -69,6 +79,18 @@ public class DialogueManager : MonoBehaviour {
                 return;
             }
             NextDialogue();
+
+            if (hasFinished && !loadingNext)
+            {
+                GameManager.instance.LoadNextScene();
+                loadingNext = true;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !loadingNext)
+        {
+            GameManager.instance.LoadNextScene();
+            loadingNext = true;
         }
         
         //foreach (TextBox txt in floatingTexts) txt.UpdateTextBox();
