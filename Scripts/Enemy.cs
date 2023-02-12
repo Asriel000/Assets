@@ -15,12 +15,12 @@ public class Enemy : Mover {
     public int hitpoint = 10;
     public int maxHitpoint = 10;
 
-    private bool move;
-    private float moveTime = 0.8f;
-    private float idleTime = 0.8f;
-    private float moveStart;
-    private float idleStart;
-    private Vector3 randVec;
+    //private bool move;
+    //private float moveTime = 0.8f;
+    //private float idleTime = 0.8f;
+    //private float moveStart;
+    //private float idleStart;
+    //private Vector3 randVec;
 
     // Hitbox
     public ContactFilter2D filter;
@@ -32,9 +32,9 @@ public class Enemy : Mover {
         playerTransform = GameManager.instance.player.transform;
         startingPosition = transform.position;
         hitbox = transform.GetChild(0).GetComponent<BoxCollider2D>();
-        randVec = Random.insideUnitCircle;
-        idleStart = Time.time;
-        move = false;
+        //randVec = Random.insideUnitCircle;
+        //idleStart = Time.time;
+        //move = false;
     }
 
     private void FixedUpdate() {
